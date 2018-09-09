@@ -1,0 +1,18 @@
+python falcon框架
+代码包括connect.py和fanyi.py两个文件
+connect.py介绍
+使用falcon框架进行前段和后台的交互
+wechatpy模块用于信息解析，使用了check_signature函数检查连接，parse_message进行xml解析，TextReply,ImageReply,VoiceReply
+进行xml封装便于回复
+同时调用了fanyi.py的search类，用于翻译
+connect.py包含一个Connect类，类中有如下函数：
+on_get函数用于认证服务，连接微信前端
+on_post函数用于接受用户信息，解析成xml，然后调用fanyi.py的search类，用于翻译，再封装后反馈给用户
+fanyi.py介绍
+使用requests和urllib.parse模板进行API请求，time、random和hashlib模块封装API请求的数据
+json是翻译结果的数据格式
+search类介绍自定义self.url
+getData函数，定义连接API的数据格式
+getHeader函数，定义进行网络请求的数据格式
+getRequest函数，进行网络请求
+getResult函数，获取翻译结果
